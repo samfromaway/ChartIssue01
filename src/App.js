@@ -28,7 +28,7 @@ function App() {
   return (
     <div className='App'>
       <Chart data={gaming} categories={['mobile', 'pc', 'console']} />
-      <Chart2 data={gaming} categories={['mobile', 'pc', 'console']} />
+      <Chart2 data={gaming} />
     </div>
   );
 }

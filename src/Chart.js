@@ -9,13 +9,13 @@ import {
   Legend,
 } from '@devexpress/dx-react-chart-material-ui';
 import { ValueScale, Stack, EventTracker } from '@devexpress/dx-react-chart';
-import { Typography } from '@material-ui/core';
 
 const AccountingSummaryChart = ({ data, categories }) => {
-  const [cat, setCat] = useState(categories);
+  // data and categories get's added from props from App.js
+  const [category, setCategory] = useState(categories);
 
   const handle = () => {
-    setCat(['mobile', 'pc', 'xbox', 'play']);
+    setCategory(['mobile', 'pc', 'xbox', 'play']);
   };
 
   return (
@@ -27,7 +27,7 @@ const AccountingSummaryChart = ({ data, categories }) => {
         <ArgumentAxis />
         <ValueAxis scaleName='price' />
 
-        {cat.map((category) => (
+        {category.map((category) => (
           <BarSeries
             key={category}
             name={category}
@@ -41,13 +41,13 @@ const AccountingSummaryChart = ({ data, categories }) => {
         <Stack
           stacks={[
             {
-              series: cat.map((category) => category),
+              series: category.map((category) => category),
             },
           ]}
         />
         <Legend position={'right'} />
       </Chart>
-      <button onClick={handle}>Change Category</button>
+      <button onClick={handle}>Add "Play" Category</button>
     </Paper>
   );
 };

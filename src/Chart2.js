@@ -8,34 +8,9 @@ import {
   Title,
   Legend,
 } from '@devexpress/dx-react-chart-material-ui';
-import { withStyles } from '@material-ui/core/styles';
 import { Stack, Animation } from '@devexpress/dx-react-chart';
 
 import { olimpicMedals as data } from './data';
-
-const legendStyles = () => ({
-  root: {
-    display: 'flex',
-    margin: 'auto',
-    flexDirection: 'row',
-  },
-});
-const legendRootBase = ({ classes, ...restProps }) => (
-  <Legend.Root {...restProps} className={classes.root} />
-);
-const Root = withStyles(legendStyles, { name: 'LegendRoot' })(legendRootBase);
-const legendLabelStyles = () => ({
-  label: {
-    whiteSpace: 'nowrap',
-  },
-});
-const legendLabelBase = ({ classes, ...restProps }) => (
-  <Legend.Label className={classes.label} {...restProps} />
-);
-const Label = withStyles(legendLabelStyles, { name: 'LegendLabel' })(
-  legendLabelBase
-);
-console.log(data);
 
 export default class Demo extends React.PureComponent {
   constructor(props) {
@@ -43,13 +18,13 @@ export default class Demo extends React.PureComponent {
 
     this.state = {
       data: data,
-      cat: ['gold', 'silver', 'bronze'],
+      category: ['gold', 'silver', 'bronze'],
     };
   }
 
   handle = () => {
     this.setState({
-      cat: ['gold', 'silver'],
+      category: ['gold', 'silver'],
     });
   };
 
@@ -62,7 +37,7 @@ export default class Demo extends React.PureComponent {
           <h1>Class Component</h1>
           <ArgumentAxis />
           <ValueAxis />
-          {this.state.cat.map((category) => (
+          {this.state.category.map((category) => (
             <BarSeries
               key={category}
               name={category}
@@ -77,7 +52,7 @@ export default class Demo extends React.PureComponent {
           <Title text='Olimpic Medals in 2008' />
           <Stack />
         </Chart>{' '}
-        <button onClick={this.handle}>Change Category</button>
+        <button onClick={this.handle}>Remove Bronze Category</button>
       </Paper>
     );
   }
