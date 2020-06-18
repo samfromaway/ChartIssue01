@@ -1,24 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
+import Chart from './Chart';
+import Chart2 from './Chart2';
 import './App.css';
+
+const gaming = [
+  {
+    year: '2012',
+    mobile: 18,
+    pc: 37,
+    console: 45,
+  },
+  {
+    year: '2013',
+    mobile: 23,
+    pc: 38,
+    console: 39,
+  },
+  {
+    year: '2014',
+    mobile: 29,
+    pc: 36,
+    console: 35,
+  },
+];
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <Chart data={gaming} categories={['mobile', 'pc', 'console']} />
+      <Chart2 data={gaming} categories={['mobile', 'pc', 'console']} />
     </div>
   );
 }
